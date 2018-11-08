@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Com.OneSignal;
 
 namespace TesteOneSignal.Droid
 {
@@ -18,6 +19,9 @@ namespace TesteOneSignal.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            OneSignal.Current.StartInit("efd8208c-6f2e-4dff-ba45-d8865fbd2610").EndInit();
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Com.OneSignal;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TesteOneSignal
@@ -12,11 +13,13 @@ namespace TesteOneSignal
             InitializeComponent();
 
             MainPage = new MainPage();
+
+            OneSignal.Current.StartInit("efd8208c-6f2e-4dff-ba45-d8865fbd2610").EndInit();
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            OneSignal.Current.StartInit("efd8208c-6f2e-4dff-ba45-d8865fbd2610").EndInit();
         }
 
         protected override void OnSleep()

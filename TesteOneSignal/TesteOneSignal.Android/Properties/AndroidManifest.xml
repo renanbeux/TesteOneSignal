@@ -1,5 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.TesteOneSignal">
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="25" />
-    <application android:label="TesteOneSignal.Android"></application>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.TesteOneSignal" android:installLocation="auto" android:versionCode="1" android:versionName="1.0">
+	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="27" />
+	<permission android:name="com.companyname.TesteOneSignal.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	<application android:label="TesteOneSignal.Android">
+		<receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<category android:name="com.companyname.TesteOneSignal" />
+			</intent-filter>
+		</receiver>
+	</application>
 </manifest>
