@@ -6,9 +6,11 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Teste de Notificação" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Label x:Name="lblIdUser" />
+        <Label Text="Teste de Notificação" HorizontalOptions="Center"/>
+        <Entry Placeholder="Digite sua notificação..." x:Name="txtNotificacao"/>
+        <Button Text="Enviar Notificação" x:Name="btEnviar" Clicked="btClicado"/>
+        <Label x:Name="lblAviso"/>
     </StackLayout>
 
 </ContentPage>
