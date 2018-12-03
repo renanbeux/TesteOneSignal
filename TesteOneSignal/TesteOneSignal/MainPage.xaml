@@ -9,6 +9,8 @@
         <Label x:Name="lblIdUser" />
         <Label Text="Teste de Notificação" HorizontalOptions="Center"/>
         <Entry Placeholder="Digite sua notificação..." x:Name="txtNotificacao"/>
+        <DatePicker x:Name="dataPicker" Format="dd-MM-yyyy"/>
+        <TimePicker x:Name="timePicker" Format="HH:mm"/>
         <Button Text="Enviar Notificação" x:Name="btEnviar" Clicked="btClicado"/>
         <Label x:Name="lblAviso"/>
     </StackLayout>
