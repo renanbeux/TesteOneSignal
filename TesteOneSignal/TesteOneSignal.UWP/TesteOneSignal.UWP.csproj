@@ -144,6 +144,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AWSSDK.DynamoDBv2">
+      <Version>3.3.15.1</Version>
+    </PackageReference>
     <PackageReference Include="Com.OneSignal">
       <Version>3.2.1</Version>
     </PackageReference>
