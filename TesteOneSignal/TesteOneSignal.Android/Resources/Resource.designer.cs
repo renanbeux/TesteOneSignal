@@ -26,6 +26,10 @@ namespace TesteOneSignal.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::PCLCrypto.Resource.String.ApplicationName = global::TesteOneSignal.Droid.Resource.String.ApplicationName;
+			global::PCLCrypto.Resource.String.Hello = global::TesteOneSignal.Droid.Resource.String.Hello;
+			global::PCLStorage.Resource.String.ApplicationName = global::TesteOneSignal.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::TesteOneSignal.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::TesteOneSignal.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -4142,6 +4146,12 @@ namespace TesteOneSignal.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f0a004e
+			public const int ApplicationName = 2131361870;
+			
+			// aapt resource value: 0x7f0a004d
+			public const int Hello = 2131361869;
 			
 			// aapt resource value: 0x7f0a0026
 			public const int abc_action_bar_home_description = 2131361830;

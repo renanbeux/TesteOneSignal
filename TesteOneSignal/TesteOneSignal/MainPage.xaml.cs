@@ -97,7 +97,6 @@ namespace TesteOneSignal
         
         private async void UpdateItem()
         {
-            // Create a client
             AmazonDynamoDBClient client = new AmazonDynamoDBClient(awsCredentials, awsRegion);
 
             Dictionary<string, AttributeValue> key = new Dictionary<string, AttributeValue>
@@ -114,7 +113,6 @@ namespace TesteOneSignal
                 Value = new AttributeValue { SS = new List<string> { "Bildungsroman" } }
             };
 
-            // Create UpdateItem request
             UpdateItemRequest request = new UpdateItemRequest
             {
                 TableName = "Books",
@@ -122,13 +120,11 @@ namespace TesteOneSignal
                 AttributeUpdates = updates
             };
 
-            // Issue request
             var response = await client.UpdateItemAsync(request);
         }
 
         private async void DeleteItem()
         {
-            // Create a client
             AmazonDynamoDBClient client = new AmazonDynamoDBClient(awsCredentials, awsRegion);
 
             Dictionary<string, AttributeValue> key = new Dictionary<string, AttributeValue>
@@ -136,14 +132,12 @@ namespace TesteOneSignal
               { "Id", new AttributeValue { N = "10" } }
             };
 
-            // Create DeleteItem request
             DeleteItemRequest request = new DeleteItemRequest
             {
                 TableName = "Books",
                 Key = key
             };
 
-            // Issue request
             var response = await client.DeleteItemAsync(request);
         }
 
@@ -156,17 +150,14 @@ namespace TesteOneSignal
                 { "Id", new AttributeValue { N = "10" } }
             };
 
-            // Create GetItem request
             GetItemRequest request = new GetItemRequest
             {
                 TableName = "Books",
                 Key = key,
             };
 
-            // Issue request
             var result = await client.GetItemAsync(request);
 
-            // View response
             Console.WriteLine("Item:");
             Dictionary<string, AttributeValue> item = result.Item;
             foreach (var keyValuePair in item)
@@ -197,13 +188,13 @@ namespace TesteOneSignal
             }
         }
 
-        public async void Scan() // Retorna todos os itens da tabela
+        public async void GetAllItemTable(string tabela)
         {
             using (var client = new AmazonDynamoDBClient(awsCredentials, awsRegion))
             {
                 var queryResponse = await client.ScanAsync(new ScanRequest()
                 {
-                    TableName = "Books"
+                    TableName = tabela
                 });
                 queryResponse.Items.ForEach((i) => { Console.WriteLine(i["Title"].S); });
             }
