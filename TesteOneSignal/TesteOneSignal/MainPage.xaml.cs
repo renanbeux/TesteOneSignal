@@ -17,6 +17,10 @@ namespace TesteOneSignal
 {
     public partial class MainPage : ContentPage
     {
+        // JWT Exemplo de Token
+        //https://www.codeproject.com/Tips/1208535/Create-and-Consume-JWT-Tokens-in-Csharp
+
+
         string awsCredentials;
         string awsRegion;
 
@@ -74,15 +78,16 @@ namespace TesteOneSignal
             AmazonDynamoDBClient client = new AmazonDynamoDBClient(awsCredentials, awsRegion);
 
             // Define item attributes
-            Dictionary<string, AttributeValue> attributes = new Dictionary<string, AttributeValue>();
-
-            // Author is hash-key
-            attributes["Author"] = new AttributeValue { S = "Mark Twain" };
-            attributes["Title"] = new AttributeValue { S = "The Adventures of Tom Sawyer" };
-            attributes["PageCount"] = new AttributeValue { N = "275" };
-            attributes["Price"] = new AttributeValue { N = "10.00" };
-            attributes["Id"] = new AttributeValue { N = "10" };
-            attributes["ISBN"] = new AttributeValue { S = "111-1111111" };
+            Dictionary<string, AttributeValue> attributes = new Dictionary<string, AttributeValue>
+            {
+                // Author is hash-key
+                ["Author"] = new AttributeValue { S = "Mark Twain" },
+                ["Title"] = new AttributeValue { S = "The Adventures of Tom Sawyer" },
+                ["PageCount"] = new AttributeValue { N = "275" },
+                ["Price"] = new AttributeValue { N = "10.00" },
+                ["Id"] = new AttributeValue { N = "10" },
+                ["ISBN"] = new AttributeValue { S = "111-1111111" }
+            };
 
             // Create PutItem request
             PutItemRequest request = new PutItemRequest
@@ -129,7 +134,7 @@ namespace TesteOneSignal
 
             Dictionary<string, AttributeValue> key = new Dictionary<string, AttributeValue>
             {
-              { "Id", new AttributeValue { N = "10" } }
+                { "Id", new AttributeValue { N = "10" } }
             };
 
             DeleteItemRequest request = new DeleteItemRequest
@@ -188,7 +193,7 @@ namespace TesteOneSignal
             }
         }
 
-        public async void GetAllItemTable(string tabela)
+        public async void GetAllFromTable(string tabela)
         {
             using (var client = new AmazonDynamoDBClient(awsCredentials, awsRegion))
             {
